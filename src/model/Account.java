@@ -1,4 +1,4 @@
-package entities;
+package model;
 
 public class Account {
     private int number;
@@ -6,7 +6,7 @@ public class Account {
     private double balance;
 
     public Account(int number, String holder, double balance) {
-        this.number =  number;
+        this.number = number;
         this.holder = holder;
         this.balance = balance;
     }
@@ -23,33 +23,30 @@ public class Account {
         return balance;
     }
 
-    public void setBalance(double balance) {
-        this.balance = balance;
-    }
-
-    public void deposit(double amount){
-        balance += amount;
-    }
-
-    public void withdraw(double amount){
-        if (this.balance >= amount) {
-            int taxa = 5;
-            this.balance = this.balance - amount - taxa ;
+    public void deposit(double amount) {
+        if (amount > 0) {
+            balance += amount;
         } else {
-            System.out.println("Saldo insuficiente!");
+            System.out.println("Invalid deposit amount!");
         }
     }
 
-
+    public void withdraw(double amount) {
+        int fee = 5;
+        if (this.balance >= amount + fee) {
+            this.balance -= amount + fee;
+        } else {
+            System.out.println("Insufficient funds!");
+        }
+    }
 
     @Override
     public String toString() {
-        return "Dados da conta: " +
+        return "Account data: " +
                 "ID: " + number +
-                ", Titular: " + holder +
-                ", Saldo: " + balance;
+                ", Holder: " + holder +
+                ", Balance: " + String.format("%.2f", balance);
     }
 }
-
 
 
