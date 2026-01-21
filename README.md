@@ -26,7 +26,7 @@ git clone https://github.com/matheusarumik/sistemabanco.git
 javac src/*.java
 
 3. Execute o programa:
-4. java src/Main
+java src/Main
 
 5. 📖 Próximos Passos
 
