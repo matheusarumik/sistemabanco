@@ -9,11 +9,7 @@ Um projeto simples de sistema bancário desenvolvido em **Java**, com funcionali
 - Consultar saldo
 - Realizar depósitos
 - Efetuar saques
-
----
-
-## 📂 Estrutura do Projeto
-sistemabanco/ ├── src/              # Código-fonte principal ├── .idea/            # Configurações do IntelliJ IDEA ├── .gitignore        # Arquivos ignorados pelo Git └── Banco.iml         # Arquivo de configuração do projet
+- Consultar saldo em $
 
 ---
 
