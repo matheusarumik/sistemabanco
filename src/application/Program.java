@@ -2,6 +2,7 @@ package application;
 
 import model.Account;
 import service.AccountService;
+import service.ApiService;
 
 import java.util.Locale;
 import java.util.Scanner;
@@ -25,7 +26,8 @@ public class Program {
             (2 - Show account details)
             (3 - Withdraw)
             (4 - Change account holder name)
-            (5 - Exit)
+            (5 - Show balance in U$)
+            (6 - Exit)
             """;
 
         Account account = new Account(number, name, 0);
@@ -71,10 +73,16 @@ public class Program {
                         System.out.println("Ok, returning to menu...");
                     }
                 }
-                case 5 -> System.out.println("Closing...");
+                case 5 -> {
+                    ApiService apiService = new ApiService();
+                    double rate = apiService.getDollarRate();
+                    double balanceInDollar = account.getBalance() / rate;
+                    System.out.printf("Seu saldo em USD: $%.2f%n", balanceInDollar);
+                }
+                case 6 -> System.out.println("Closing...");
                 default -> System.out.println("Option not recognized.");
             }
-        } while (option != 5);
+        } while (option != 6);
 
         sc.close();
     }

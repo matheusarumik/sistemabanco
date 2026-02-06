@@ -11,6 +11,14 @@ public class Account {
         this.balance = balance;
     }
 
+    public class CurrencyResponse {
+        public USDBRL USDBRL;
+
+        public static class USDBRL {
+            public String bid;
+        }
+    }
+
     public String getHolder() {
         return holder;
     }
