@@ -1,5 +1,8 @@
 package service;
 
+import com.google.gson.Gson;
+import model.CurrencyResponse;
+
 import java.net.URI;
 import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
@@ -18,12 +21,17 @@ public class ApiService {
 
             HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
 
-            System.out.println("Answer API: " + response.body());
+            String json = response.body();
+            Gson gson = new Gson();
+
+            CurrencyResponse data = gson.fromJson(json, CurrencyResponse.class);
+
+            return Double.parseDouble(data.USDBRL.bid);
+
+        } catch (Exception e) {
+            System.out.println("API error: " + e.getMessage());
 
             return 5.0;
-        } catch (Exception e) {
-            System.out.println("Error API: " + e.getMessage());
-            return 0;
         }
     }
 }

@@ -77,7 +77,7 @@ public class Program {
                     ApiService apiService = new ApiService();
                     double rate = apiService.getDollarRate();
                     double balanceInDollar = account.getBalance() / rate;
-                    System.out.printf("Seu saldo em USD: $%.2f%n", balanceInDollar);
+                    System.out.printf("Your amount in USD: $%.2f%n", balanceInDollar);
                 }
                 case 6 -> System.out.println("Closing...");
                 default -> System.out.println("Option not recognized.");
