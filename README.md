@@ -10,6 +10,7 @@ Um projeto simples de sistema bancário desenvolvido em **Java**, com funcionali
 - Realizar depósitos
 - Efetuar saques
 - Consultar saldo em $
+- - Testes automatizados (JUnit 5)
 
 ---
 
@@ -26,7 +27,6 @@ java src/Main
 
 5. 📖 Próximos Passos
 
-- Adicionar testes automatizados (JUnit)
 - Melhorar a documentação
 - Implementar persistência em banco de dados
   
